@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Добавить лот{% endblock %}
+{% block content %}
+<a href="{{ url_for('index') }}" class="link-back">← Назад</a>
+<h1>Добавить новый лот</h1>
+<form method="post" class="form">
+    <label>Название</label>
+    <input name="title" required>
+    <label>Цена (₽)</label>
+    <input name="price" type="number" required>
+    <label>Описание</label>
+    <textarea name="description" rows="4" required></textarea>
+    <label>URL изображения (по умолчанию используются изображения из /static/images)</label>
+    <input name="image" placeholder="/static/images/default.svg">
+    <button class="btn" type="submit">Добавить</button>
+</form>
+{% endblock %}

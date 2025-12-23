@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Вход{% endblock %}
+{% block content %}
+<div class="auth-card">
+  <h2>Войти</h2>
+  <form method="post" class="form">
+    <label>Имя пользователя</label>
+    <input name="username" required>
+    <label>Пароль</label>
+    <input name="password" type="password" required>
+    <button class="btn" type="submit">Войти</button>
+  </form>
+  <p>Нет аккаунта? <a href="{{ url_for('register') }}">Зарегистрироваться</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}Аукцион недвижимости{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="{{ url_for('index') }}">Хорошая Идея</a>
+      <nav class="nav">
+        <a href="{{ url_for('index') }}">Главная</a>
+        <a href="{{ url_for('add_property') }}">Добавить лот</a>
+      </nav>
+      <div class="header-actions">
+        {% if current_user %}
+          <a href="{{ url_for('profile') }}" class="btn small">Личный кабинет ({{ current_user.username }})</a>
+          <a href="{{ url_for('logout') }}" class="btn small ghost">Выйти</a>
+        {% else %}
+          <a href="{{ url_for('login') }}" class="btn small">Войти</a>
+          <a href="{{ url_for('register') }}" class="btn small ghost">Регистрация</a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+  <main class="container main-content">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash-list">
+          {% for m in messages %}<div class="flash">{{ m }}</div>{% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>Хорошая Идея</h4>
+        <p>Платформа для аукционов недвижимости — профессиональное решение для ваших продаж.</p>
+      </div>
+      <div>
+        <h4>Техническая поддержка</h4>
+        <p>Иван Петров<br>Телефон: +7 (900) 000-00-00</p>
+      </div>
+      <div class="footer-right">
+        <p>© 2025 Хорошая Идея — Онлайн-аукцион недвижимости</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

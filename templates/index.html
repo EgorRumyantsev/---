@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Главная — Аукцион{% endblock %}
+{% block content %}
+<section class="controls">
+    <form method="get" class="controls-form">
+        <input type="text" name="q" placeholder="Поиск по названию..." value="{{ query }}">
+        <select name="sort">
+            <option value="none" {% if sort=='none' %}selected{% endif %}>Сортировка</option>
+            <option value="asc" {% if sort=='asc' %}selected{% endif %}>Цена ↑</option>
+            <option value="desc" {% if sort=='desc' %}selected{% endif %}>Цена ↓</option>
+        </select>
+        <button class="btn" type="submit">Применить</button>
+    </form>
+</section>
+<h1 class="page-title">Доступные лоты</h1>
+<div class="cards">
+  {% for prop in properties %}
+    <div class="card">
+      <img src="{{ prop.image }}" class="card-image" alt="image">
+      <div class="card-body">
+        <h4>{{ prop.title }}</h4>
+        <p class="muted">{{ prop.description }}</p>
+        <p class="price">{{ prop.price }} ₽</p>
+        <div class="card-actions">
+          <a class="btn small" href="{{ url_for('property_view', prop_id=prop.id) }}">Подробнее</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

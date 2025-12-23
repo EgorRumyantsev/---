@@ -1,0 +1,31 @@
+[
+    {
+        "id": 1,
+        "title": "Квартира в центре",
+        "price": 7500000,
+        "description": "2 комнаты, метро 5 минут",
+        "image": "/static/images/flat.svg"
+    },
+    {
+        "id": 2,
+        "title": "Дом у озера",
+        "price": 12500000,
+        "description": "Участок, сад, гараж",
+        "image": "/static/images/house.svg"
+    },
+    {
+        "id": 3,
+        "title": "Апартаменты у моря",
+        "price": 9800000,
+        "description": "Балкон с видом на закат",
+        "image": "/static/images/seaside.svg"
+    },
+    {
+        "id": 4,
+        "title": "Гараж в Мурино",
+        "price": 1000000,
+        "description": "Продаю гараж в Мурино, технически пригоден, для авто самое то, писать в вацап",
+        "image": "https://img.dmclk.ru/c960x640q80/vitrina/8a/21/8a214f6c0ed3e27e85b83d311a3a8757801b5f8c.jpg",
+        "owner": "admin"
+    }
+]

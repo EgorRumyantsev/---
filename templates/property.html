@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}{{ prop.title }} — Лот{% endblock %}
+{% block content %}
+<a href="{{ url_for('index') }}" class="link-back">← Назад</a>
+<div class="detail">
+  <img src="{{ prop.image }}" class="detail-image" alt="image">
+  <div class="detail-info">
+    <h1>{{ prop.title }}</h1>
+    <p class="muted">{{ prop.description }}</p>
+    <p class="big-price">{{ prop.price }} ₽</p>
+
+    <h3>Сделать ставку</h3>
+    <form method="post" action="{{ url_for('bid', prop_id=prop.id) }}" class="form">
+      <label>Сумма (₽)</label>
+      <input name="amount" type="number" required placeholder="Введите сумму">
+      <button class="btn" type="submit">Сделать ставку</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
